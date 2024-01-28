@@ -1,6 +1,7 @@
 @mixin container {
   margin: 0 auto;
-  // Desktop size 1600 - 2*215 + 2*30 mobile padding
+  width: 100%;
+  // Desktop size 1600 - 2*215 + 2*30 mobile side padding
   max-width: calc(1600px - (2 * 215px) + 60px);
   padding: 0 30px;
 }

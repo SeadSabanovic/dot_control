@@ -6,8 +6,4 @@
 //Components
 @forward "./components/rating";
 @forward "./components/header";
-
-:root {
-  --header-mobile: 81px;
-  --header-desktop: 96px;
-}
+@forward "./components/movie-details";
