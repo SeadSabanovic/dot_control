@@ -1,3 +1,4 @@
+import LoadMore from "../UI/LoadMore";
 import MovieOverviewCard from "./MovieOverviewCard";
 
 export default function MovieOverview() {
@@ -8,6 +9,7 @@ export default function MovieOverview() {
         <MovieOverviewCard />
         <MovieOverviewCard />
       </div>
+      <LoadMore />
     </div>
   );
 }

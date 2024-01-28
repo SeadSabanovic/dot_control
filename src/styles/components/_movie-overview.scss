@@ -3,14 +3,25 @@
 .movie-overview {
   $mo: &;
   @include container-sm;
+  margin-top: -80px;
 
   &__cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    gap: 20px;
+    padding-bottom: 60px;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 550px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      padding-bottom: 80px;
+      gap: 30px;
+    }
 
     &__card {
-      margin-top: -80px;
       $card: &;
       cursor: pointer;
       position: relative;
