@@ -1,0 +1,30 @@
+.rating {
+  $rating: &;
+  display: flex;
+  align-items: flex-end;
+  column-gap: 14px;
+
+  &__hearts {
+    display: flex;
+    gap: 4px;
+
+    &__heart {
+      $heart: &;
+      width: 16px;
+      height: 14.7px;
+
+      &:not(#{$heart}--fill) {
+        opacity: 0.2;
+      }
+
+      &--fill {
+        #{$heart}__inner {
+          fill: #ff2345;
+        }
+      }
+    }
+  }
+
+  &__value {
+  }
+}
