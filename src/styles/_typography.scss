@@ -26,10 +26,12 @@ The Only Newzald Font I was able to find withouh a licence
 
 @mixin font-title {
   font-family: "Galano Grotesque", sans-serif;
+  letter-spacing: 0;
 }
 
 @mixin font-body {
   font-family: "Newzald", sans-serif;
+  letter-spacing: 0;
 }
 
 h1,
@@ -41,8 +43,12 @@ h6 {
   @include font-title;
 }
 
-.description {
-  @include font-body;
+.h1 {
+  font-size: 3.75rem;
+
+  @media (min-width: 768px) {
+    font-size: 5.625rem;
+  }
 }
 
 // Default
