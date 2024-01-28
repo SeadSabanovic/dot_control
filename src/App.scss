@@ -1,1 +1,8 @@
 @use "./styles/index.scss" as *;
+
+// General Styling
+body {
+  background-color: #0e0e0e;
+  color: #fff;
+  padding-top: 100px;
+}
