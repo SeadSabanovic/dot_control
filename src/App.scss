@@ -1,4 +1,4 @@
-@use "./styles/index.scss";
+@use "./styles/index.scss" as *;
 
 .rating {
   $rating: &;
@@ -21,12 +21,15 @@
 
       &--fill {
         #{$heart}__inner {
-          fill: #ff2345;
+          fill: $color-primary;
         }
       }
     }
   }
 
   &__value {
+    font-size: 0.875rem;
+    line-height: calc(1.25 / 0.875);
+    @include font-title;
   }
 }

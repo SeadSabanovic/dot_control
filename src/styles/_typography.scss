@@ -14,6 +14,9 @@
   font-style: normal;
 }
 
+/**
+The Only Newzald Font I was able to find withouh a licence
+*/
 @font-face {
   font-family: "Newzald";
   src: url("./assets/fonts/Newzald/TestNewzald-Bold.otf") format("opentype");
@@ -21,8 +24,30 @@
   font-style: normal;
 }
 
-html {
+@mixin font-title {
+  font-family: "Galano Grotesque", sans-serif;
+}
+
+@mixin font-body {
   font-family: "Newzald", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include font-title;
+}
+
+.description {
+  @include font-body;
+}
+
+// Default
+html {
+  @include font-body;
   font-weight: 700;
   font-style: normal;
 }
