@@ -13,10 +13,11 @@
 }
 
 @mixin container-sm {
-  @include container-styling;
-  // Desktop size 1600 - 3*370 (cards) + 2*20 desktop column-gap
-  max-width: calc(1600px - (3 * 370px) + 60px);
-  padding: 0 20px;
+  @include container;
+
+  @media (max-width: 768px) {
+    padding: 0 20px;
+  }
 }
 
 @mixin button-styles {
