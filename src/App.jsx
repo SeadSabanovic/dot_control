@@ -9,10 +9,6 @@ function App() {
       <Header />
       <MovieDetails />
       <Rating />
-      <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur,
-        odio.
-      </p>
     </>
   );
 }

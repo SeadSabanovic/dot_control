@@ -1,3 +1,5 @@
+import Button from "./UI/Button";
+
 export default function MovieDetails() {
   return (
     <div className="movie-details">
@@ -14,6 +16,7 @@ export default function MovieDetails() {
           step forward to lead his people into a new future and must confront a
           challenger from his country's past.
         </p>
+        <Button>More information</Button>
       </div>
     </div>
   );

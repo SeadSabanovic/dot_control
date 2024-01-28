@@ -1,0 +1,25 @@
+@use "../variables" as *;
+@use "../typography" as *;
+@use "../mixins" as *;
+
+.button {
+  @include button-styles;
+
+  background-color: $color-primary;
+  color: #fff;
+  @include font-title;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: none;
+
+  &:focus,
+  &:hover {
+    background-color: darken($color-primary, 20%);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+}

@@ -38,6 +38,9 @@
 
   &__inner {
     @include container;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
     #{$md}__title {
       max-width: 772px;
@@ -45,9 +48,12 @@
 
     #{$md}__description {
       max-width: 570px;
-      margin-top: 20px;
       font-size: 18px;
       line-height: calc(24 / 18);
+    }
+
+    .button {
+      align-self: flex-start;
     }
   }
 }

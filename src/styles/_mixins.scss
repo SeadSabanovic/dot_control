@@ -1,7 +1,29 @@
-@mixin container {
+@use "./variables" as *;
+
+@mixin container-styles {
   margin: 0 auto;
   width: 100%;
-  // Desktop size 1600 - 2*215 + 2*30 mobile side padding
+}
+
+@mixin container {
+  @include container-styles;
+  // Desktop size 1600 - 2*215 (space arround) + 2*30 mobile side padding
   max-width: calc(1600px - (2 * 215px) + 60px);
   padding: 0 30px;
+}
+
+@mixin container-sm {
+  @include container-styling;
+  // Desktop size 1600 - 3*370 (cards) + 2*20 desktop column-gap
+  max-width: calc(1600px - (3 * 370px) + 60px);
+  padding: 0 20px;
+}
+
+@mixin button-styles {
+  padding: 0 30px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 50vw;
+  transition: background-color 0.2s $transition-standard,
+    transform 0.2s $transition-standard;
 }
