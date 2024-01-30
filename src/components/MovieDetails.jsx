@@ -5,16 +5,16 @@ export default function MovieDetails() {
     <div className="movie-details">
       <div className="movie-details__bg">
         <img
+          loading="lazy"
           className="movie-details__bg__img"
-          src="https://images.pexels.com/photos/2925322/pexels-photo-2925322.jpeg"
+          loading="lazy"
+          src="https://images.pexels.com/photos/7991436/pexels-photo-7991436.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         />
       </div>
       <div className="movie-details__inner">
-        <h2 className="movie-details__title h1">Black Panther</h2>
+        <h2 className="movie-details__title h1">Dot Control</h2>
         <p className="movie-details__description">
-          T'Challa, heir to the hidden but advanced kingdom of Wakanda, must
-          step forward to lead his people into a new future and must confront a
-          challenger from his country's past.
+          Realizing a positive futurefor people, brands and organizations
         </p>
         <Button>More information</Button>
       </div>
