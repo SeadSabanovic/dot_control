@@ -2,11 +2,11 @@ import { useRef } from "react";
 import Rating from "./Rating";
 
 export default function MovieOverviewCard({ data }) {
+  console.log(data);
   const imageEl = useRef(null);
   const onImageLoaded = () => {
     const loadedClass = "movie-overview__cards__card__img__el--loaded";
     imageEl.current.classList.add(loadedClass);
-    console.log(imageEl.current);
   };
   return (
     <div className="movie-overview__cards__card">
