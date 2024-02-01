@@ -1,46 +1,28 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import LoadMore from "../UI/LoadMoreButton";
 import MovieOverviewCard from "./MovieOverviewCard";
+import useMovieData from "../../hooks/useFetchMovies";
 
 export default function MovieOverview() {
-  const movieTitle = "superhero";
-  const [movies, setMovies] = useState([]);
+  const keyword = "superhero";
+  const [currentPage, setCurrentPage] = useState(1);
+  const { movies, loading, error } = useMovieData(keyword, currentPage);
 
-  useEffect(() => {
-    const fetchMovieData = async () => {
-      try {
-        const apiUrl = `${
-          import.meta.env.VITE_API_BASE_URL
-        }?s=${movieTitle}&type=movie&apikey=${import.meta.env.VITE_API_KEY}`;
-        const response = await fetch(apiUrl);
+  const onLoadMore = () => {
+    if (!loading) {
+      console.log("test");
+      setCurrentPage((prevPage) => prevPage + 1);
+    }
+  };
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
+  if (loading && !movies.length) {
+    return <p>Loading...</p>;
+  }
 
-        const data = await response.json();
+  if (error) {
+    return <p>Error: {error.message}</p>;
+  }
 
-        // Fetch additional details for each movie using IMDb ID
-        const movieDetailsPromises = data.Search.map(async (movie) => {
-          const detailsUrl = `${import.meta.env.VITE_API_BASE_URL}?i=${
-            movie.imdbID
-          }&apikey=${import.meta.env.VITE_API_KEY}`;
-          const detailsResponse = await fetch(detailsUrl);
-          if (!detailsResponse.ok) {
-            throw new Error("Error fetching movie details");
-          }
-          const detailsData = await detailsResponse.json();
-          return detailsData;
-        });
-
-        const movieDetails = await Promise.all(movieDetailsPromises);
-        setMovies(movieDetails);
-      } catch (error) {
-        console.error("Error fetching movie data:", error);
-      }
-    };
-    fetchMovieData();
-  }, []);
   return (
     <div className="movie-overview">
       <div role="list" className="movie-overview__cards">
@@ -48,7 +30,8 @@ export default function MovieOverview() {
           return <MovieOverviewCard data={movie} key={index} />;
         })}
       </div>
-      <LoadMore />
+      {loading}
+      <LoadMore onClick={() => onLoadMore()} />
     </div>
   );
 }
