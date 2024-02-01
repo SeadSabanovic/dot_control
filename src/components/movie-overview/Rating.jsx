@@ -1,8 +1,5 @@
-export default function Rating() {
-  // Random Number from 3.0 to 10
-  const randomRating = (Math.random() * 7 + 3).toFixed(1);
-  const tenStarRating = Math.round(randomRating);
-  const fiveStarRating = Math.round(tenStarRating * 0.5).toFixed(1);
+export default function Rating({ score }) {
+  const fiveStarRating = Math.round(score * 0.5).toFixed(1);
   const heartClass = "rating__hearts__heart";
 
   return (
@@ -29,7 +26,7 @@ export default function Rating() {
           </svg>
         ))}
       </div>
-      <span className="rating__value">{randomRating}/10</span>
+      <span className="rating__value">{score}/10</span>
     </div>
   );
 }

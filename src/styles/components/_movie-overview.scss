@@ -5,6 +5,7 @@
   $mo: &;
   @include container-sm;
   margin-top: -80px;
+  padding-bottom: 100px;
 
   &__cards {
     display: grid;

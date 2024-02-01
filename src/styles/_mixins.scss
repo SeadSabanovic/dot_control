@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./typography" as *;
 
 @mixin container-styles {
   margin: 0 auto;
@@ -7,24 +8,30 @@
 
 @mixin container {
   @include container-styles;
-  // Desktop size 1600 - 2*215 (space arround) + 2*30 mobile side padding
   max-width: calc(1600px - (2 * 215px) + 60px);
   padding: 0 30px;
 }
 
 @mixin container-sm {
   @include container;
-
   @media (max-width: 768px) {
     padding: 0 20px;
   }
 }
 
 @mixin button-styles {
-  padding: 0 30px;
+  @include font-title;
+  height: 56px;
   cursor: pointer;
-  display: inline-block;
+  display: flex;
+  align-items: center;
   border-radius: 50vw;
+  outline: none;
+  color: #fff;
   transition: background-color 0.2s $transition-standard,
     transform 0.2s $transition-standard;
+
+  &:active {
+    transform: scale(0.95);
+  }
 }

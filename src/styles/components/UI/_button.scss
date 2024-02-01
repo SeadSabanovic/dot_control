@@ -1,0 +1,16 @@
+@use "../../variables" as *;
+@use "../../mixins" as *;
+
+.button {
+  @include button-styles;
+  padding: 0 30px;
+  gap: 24px;
+  background-color: $color-primary;
+  height: 56px;
+  border: none;
+
+  &:focus,
+  &:hover {
+    background-color: darken($color-primary, 20%);
+  }
+}

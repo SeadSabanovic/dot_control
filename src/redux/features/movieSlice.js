@@ -3,7 +3,7 @@ import poster from "../../assets/images/cinema.webp";
 
 const initialState = {
   selectedMovie: {
-    title: "Movies",
+    title: "Superhero Movies",
     poster,
     description: "Find Your Flick: Your Personal Cinema Journey Awaits!",
     imdbID: undefined,

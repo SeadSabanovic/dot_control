@@ -26,7 +26,7 @@ export default function MovieOverviewCard({ data }) {
         <span className="movie-overview__cards__card__tags">
           Action, Adventure, Sci-Fi
         </span>
-        <Rating></Rating>
+        <Rating score={data.imdbRating}></Rating>
       </div>
     </div>
   );

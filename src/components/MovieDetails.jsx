@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import Button from "./UI/Button";
+import imdb from "../assets/icons/imdb.svg";
 
 export default function MovieDetails() {
   const selectedMovie = useSelector((state) => state.movie.selectedMovie);
@@ -18,6 +19,10 @@ export default function MovieDetails() {
         <p className="movie-details__description">
           {selectedMovie.description}
         </p>
+        <Button>
+          More information
+          <img src={imdb} alt="IMDb logo" />
+        </Button>
         {selectedMovie.imdbID && <Button>More information</Button>}
       </div>
     </div>

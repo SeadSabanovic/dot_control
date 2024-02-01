@@ -1,0 +1,11 @@
+@use "../../mixins" as *;
+
+.load-more-btn {
+  $block: &;
+  @include button-styles;
+  gap: 30px;
+  margin: 0 auto;
+  padding: 0 30px 0 12px;
+  background-color: transparent;
+  border: 2px solid rgba(#ffffff, 0.2);
+}
