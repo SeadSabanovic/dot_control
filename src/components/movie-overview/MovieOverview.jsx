@@ -31,7 +31,7 @@ export default function MovieOverview() {
         })}
       </div>
       {loading}
-      <LoadMore onClick={() => onLoadMore()} />
+      <LoadMore onClick={() => onLoadMore()} loading={loading} />
     </div>
   );
 }

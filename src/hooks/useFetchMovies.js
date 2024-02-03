@@ -37,7 +37,6 @@ const useMovieData = (movieTitle, page) => {
 
         const newMovies = await Promise.all(movieDetailsPromises);
 
-        // Concatenate the new movies with the existing ones
         setMovies((prevMovies) => [...prevMovies, ...newMovies]);
         setLoading(false);
       } catch (error) {
