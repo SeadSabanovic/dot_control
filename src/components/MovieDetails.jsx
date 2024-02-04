@@ -9,11 +9,11 @@ export default function MovieDetails() {
   const imageEl = useRef(null);
 
   useEffect(() => {
-    gsap.set(imageEl.current, { autoAlpha: 0 });
+    gsap.set(imageEl.current, { autoAlpha: 0, scale: 1.05 });
   });
 
   const onImageLoaded = () => {
-    gsap.to(imageEl.current, { autoAlpha: 1, duration: 0.3 });
+    gsap.to(imageEl.current, { autoAlpha: 1, scale: 1, duration: 0.4 });
   };
 
   return (
