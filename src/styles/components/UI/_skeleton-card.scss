@@ -1,0 +1,21 @@
+@use "../../variables" as *;
+
+.skeleton-card {
+  $block: &;
+  aspect-ratio: 1/1.486;
+  background: linear-gradient(
+    to right,
+    $color-dark 8%,
+    lighten($color-dark, 1%) 18%,
+    $color-dark 33%
+  );
+  background-size: 200% 100%;
+  animation: 1.5s skeleton linear infinite;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+@keyframes skeleton {
+  to {
+    background-position-x: -200%;
+  }
+}

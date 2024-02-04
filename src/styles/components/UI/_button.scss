@@ -12,4 +12,8 @@
   &:hover {
     background-color: darken($color-primary, 20%);
   }
+
+  &--link {
+    text-decoration: none;
+  }
 }

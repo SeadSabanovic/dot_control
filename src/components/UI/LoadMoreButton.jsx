@@ -7,8 +7,9 @@ export default function LoadMoreButton({ onClick, loading = false }) {
 
   useEffect(() => {
     const iconEl = icon.current;
+
     if (loading) {
-      const tl = gsap.timeline({ repeat: -1, ease: "none" });
+      const tl = gsap.timeline({ repeat: -1, ease: "power2.inOut" });
       tl.to(iconEl, { rotate: 360, duration: 2 });
       return () => {
         tl.kill();
@@ -17,6 +18,7 @@ export default function LoadMoreButton({ onClick, loading = false }) {
 
     gsap.set(iconEl, { rotation: 0 });
   }, [loading]);
+
   return (
     <button className="load-more-btn" onClick={onClick}>
       <img ref={icon} src={loadIcon} alt="load more icon" />

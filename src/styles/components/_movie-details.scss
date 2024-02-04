@@ -3,6 +3,8 @@
 .movie-details {
   position: relative;
   min-height: 100svh;
+  max-height: 1000px;
+  padding: 100px 0;
   $md: &;
   display: flex;
   flex-direction: column;

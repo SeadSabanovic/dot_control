@@ -2,35 +2,62 @@ import { useState } from "react";
 import LoadMore from "../UI/LoadMoreButton";
 import MovieOverviewCard from "./MovieOverviewCard";
 import useMovieData from "../../hooks/useFetchMovies";
+import { useDispatch, useSelector } from "react-redux";
+import { selectMovie } from "../../redux/features/movieSlice";
+import SkeletonCard from "../UI/SkeletonCard";
 
 export default function MovieOverview() {
   const keyword = "superhero";
   const [currentPage, setCurrentPage] = useState(1);
   const { movies, loading, error } = useMovieData(keyword, currentPage);
+  const selectedMovie = useSelector((state) => state.movie.selectedMovie);
+  const dispatch = useDispatch();
 
   const onLoadMore = () => {
+    // Prevent Double Click
     if (!loading) {
-      console.log("test");
       setCurrentPage((prevPage) => prevPage + 1);
     }
   };
 
+  const onSelectMovie = (movie) => {
+    // Don't update if movie already selected
+    if (selectedMovie && selectedMovie.imdbID !== movie.imdbID)
+      dispatch(selectMovie(movie));
+    // Scroll to the top to show Selected Movie
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   if (loading && !movies.length) {
-    return <p>Loading...</p>;
+    return (
+      <div className="movie-overview">
+        <div role="list" className="movie-overview__cards">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <SkeletonCard key={index} />
+          ))}
+        </div>
+      </div>
+    );
   }
 
   if (error) {
-    return <p>Error: {error.message}</p>;
+    return <h4 style={{ color: "red" }}>Error: {error.message}</h4>;
   }
 
   return (
     <div className="movie-overview">
       <div role="list" className="movie-overview__cards">
         {movies.map((movie, index) => {
-          return <MovieOverviewCard data={movie} key={index} />;
+          return (
+            <MovieOverviewCard
+              movie={movie}
+              key={index}
+              onSelectMovie={onSelectMovie}
+            />
+          );
         })}
       </div>
-      {loading}
       <LoadMore onClick={() => onLoadMore()} loading={loading} />
     </div>
   );
